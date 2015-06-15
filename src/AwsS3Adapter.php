@@ -245,7 +245,7 @@ class AwsS3Adapter extends AbstractAdapter
         $options = $this->getOptions($path);
         $result = $this->client->getObject($options);
 
-        return $this->normalizeResponse($result->getAll(), $path);
+        return $this->normalizeResponse($result->toArray(), $path);
     }
 
     /**
@@ -318,7 +318,7 @@ class AwsS3Adapter extends AbstractAdapter
         $options = $this->getOptions($path);
         $result = $this->client->headObject($options);
 
-        return $this->normalizeResponse($result->getAll(), $path);
+        return $this->normalizeResponse($result->toArray(), $path);
     }
 
     /**
